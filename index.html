@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Number Guesser</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen flex items-center justify-center p-6">
+    <main class="max-w-lg w-full">
+      <section class="bg-white/90 backdrop-blur rounded-2xl shadow-2xl p-6 sm:p-8 border border-slate-200">
+        <div class="flex items-center justify-between mb-4">
+          <h1 class="text-2xl font-semibold text-slate-800 flex items-center gap-3">
+            Number Guesser
+          </h1>
+          <div class="text-sm text-slate-600">Guess a number between 1 and 100</div>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="flex items-center gap-3">
+            <label class="text-sm text-slate-700">Difficulty</label>
+            <select id="difficulty" class="ml-auto rounded-md border px-3 py-2 text-sm bg-white">
+              <option value="normal" selected>Normal (7 guesses)</option>
+              <option value="easy">Easy (10 guesses)</option>
+              <option value="hard">Hard (5 guesses)</option>
+            </select>
+            <button id="restartBtn" class="ml-3 inline-flex items-center gap-2 px-3 py-2 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 transition">
+              <span class="material-icons">autorenew</span>
+              Restart
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <input id="guessInput" type="number" min="1" max="100" placeholder="Enter your guess" class="flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-300 text-slate-800 transition-transform duration-150 transform hover:scale-[1.01]" />
+            <button id="guessBtn" class="px-4 py-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition transform hover:-translate-y-0.5 active:translate-y-0.5 shadow-lg flex items-center gap-2">
+              <span class="material-icons">send</span>
+              Guess
+            </button>
+          </div>
+
+          <div id="feedback" class="min-h-[40px] text-sm text-slate-700"></div>
+
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between text-sm">
+              <div>Remaining guesses: <span id="remaining" class="font-medium">—</span></div>
+              <div>Last result: <span id="last" class="font-medium">—</span></div>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div id="progressBar" class="h-3 bg-gradient-to-r from-emerald-400 to-green-600 w-0 transition-all duration-500"></div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm text-slate-600 mb-2">Guess history</h3>
+            <div id="history" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div id="endMessage" class="hidden p-4 rounded-lg text-center text-white font-medium"></div>
+        </div>
+       
+        <div id="confetti-root" class="pointer-events-none absolute inset-0"></div>
+      </section>
+
+      <footer class="mt-4 text-xs text-slate-500 text-center">Built with Tailwind CSS & Material Icons — animations & validation included.</footer>
+    </main>
+
+    <script src="./src/script.js"></script>
+  </body>
+</html>
